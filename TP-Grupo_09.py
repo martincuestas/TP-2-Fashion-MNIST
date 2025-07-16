@@ -442,84 +442,54 @@ print(top_pixeles_sin_repetir_5)
 print(top_pixeles_sin_repetir_3)
 print(top_pixeles_sin_repetir_1)
 
-cinco_pixeles_utiles = ['pixel686', 'pixel417', 'pixel427', 'pixel40', 'pixel597', 'pixel352', 'pixel400', 'pixel498', 'pixel372',
-                  'pixel43', 'pixel606', 'pixel201', 'pixel596', 'pixel446', 'pixel97', 'pixel63', 'pixel582', 'pixel526',
-                  'pixel76', 'pixel745', 'pixel510', 'pixel42', 'pixel389', 'pixel331', 'pixel353', 'pixel469', 'pixel146',
-                  'pixel45', 'pixel455', 'pixel241', 'pixel373', 'pixel445', 'pixel94', 'pixel230', 'pixel173', 'pixel566',
-                  'pixel162', 'pixel744', 'pixel38', 'pixel554', 'pixel502', 'pixel733', 'pixel231', 'pixel287', 'pixel69',
-                  'pixel630', 'pixel594', 'pixel357', 'pixel473', 'pixel499', 'pixel658', 'pixel190', 'pixel271', 'pixel245',
-                  'pixel380', 'pixel741', 'pixel602', 'pixel598', 'pixel441', 'pixel259', 'pixel244', 'pixel579', 'pixel242',
-                  'pixel601', 'pixel343', 'pixel288', 'pixel527', 'pixel37', 'pixel434', 'pixel610', 'pixel743', 'pixel426',
-                  'pixel303', 'pixel385', 'pixel98', 'pixel39', 'pixel359', 'pixel174', 'pixel398', 'pixel370', 'pixel70',
-                  'pixel407', 'pixel90', 'pixel300', 'pixel638', 'pixel454', 'pixel472', 'pixel500', 'pixel71', 'pixel316',
-                  'pixel399', 'pixel538', 'pixel482', 'pixel41', 'pixel740', 'pixel607', 'pixel371', 'pixel315', 'pixel202',
-                  'pixel739', 'pixel528', 'pixel497', 'pixel605', 'pixel578', 'pixel260', 'pixel44', 'pixel600', 'pixel243',
-                  'pixel218', 'pixel742', 'pixel418', 'pixel47', 'pixel599', 'pixel275', 'pixel246']
-
-tres_pixeles_utiles = ['pixel638', 'pixel566', 'pixel41', 'pixel39', 'pixel434', 'pixel482', 'pixel426', 'pixel371', 'pixel739',
-                       'pixel741', 'pixel398', 'pixel538', 'pixel389', 'pixel231', 'pixel599', 'pixel43', 'pixel526', 'pixel744',
-                       'pixel740', 'pixel733', 'pixel331', 'pixel40', 'pixel372', 'pixel427', 'pixel601', 'pixel246', 'pixel98', 'pixel417',
-                       'pixel658', 'pixel579', 'pixel527', 'pixel469', 'pixel202', 'pixel582', 'pixel602', 'pixel399', 'pixel610', 'pixel353',
-                       'pixel173', 'pixel37', 'pixel303', 'pixel38', 'pixel287', 'pixel630', 'pixel370', 'pixel45', 'pixel242', 'pixel76', 'pixel44',
-                       'pixel446', 'pixel288', 'pixel243', 'pixel230', 'pixel201', 'pixel500', 'pixel528', 'pixel69', 'pixel241', 'pixel316', 'pixel418',
-                       'pixel445', 'pixel594', 'pixel554', 'pixel275', 'pixel497', 'pixel63', 'pixel598', 'pixel606', 'pixel259', 'pixel597', 'pixel343',
-                       'pixel600', 'pixel743', 'pixel742', 'pixel42', 'pixel380', 'pixel510', 'pixel315', 'pixel174', 'pixel70', 'pixel218', 'pixel607']
-
-pixel_mas_util = ['pixel40', 'pixel566', 'pixel554', 'pixel41', 'pixel497', 'pixel39', 'pixel63', 'pixel598', 'pixel606', 'pixel630', 'pixel259', 'pixel371',
-                  'pixel246', 'pixel98', 'pixel417', 'pixel741', 'pixel242', 'pixel743', 'pixel446', 'pixel44', 'pixel528', 'pixel742', 'pixel380', 'pixel510',
-                  'pixel398', 'pixel538', 'pixel202', 'pixel610', 'pixel399', 'pixel43', 'pixel173', 'pixel303', 'pixel38', 'pixel70']
 
 
+profundidades_gini_118, exactitudes_gini_118 = performance_Decision_Tree(10, top_pixeles_sin_repetir_5, 'gini')
+profundidades_gini_82, exactitudes_gini_82 = performance_Decision_Tree(10, top_pixeles_sin_repetir_3, 'gini')
+profundidades_gini_34, exactitudes_gini_34 = performance_Decision_Tree(10, top_pixeles_sin_repetir_1, 'gini')
 
-X_dev = X_dev[cinco_pixeles_utiles]
-X_holdout = X_holdout[cinco_pixeles_utiles]
+profundidades_entropy_118, exactitudes_entropy_118 = performance_Decision_Tree(10, top_pixeles_sin_repetir_5, 'entropy')
+profundidades_entropy_82, exactitudes_entropy_82 = performance_Decision_Tree(10, top_pixeles_sin_repetir_3, 'entropy')
+profundidades_entropy_34, exactitudes_entropy_34 = performance_Decision_Tree(10, top_pixeles_sin_repetir_1, 'entropy')
 
-profundidades_gini_115, exactitudes_gini_115 = performance_Decision_Tree(10, cinco_pixeles_utiles, 'gini')
-profundidades_gini_69, exactitudes_gini_69 = performance_Decision_Tree(10, tres_pixeles_utiles, 'gini')
-profundidades_gini_23, exactitudes_gini_23 = performance_Decision_Tree(10, pixel_mas_util, 'gini')
+graficar_performance_Decision_Tree(profundidades_entropy_118, exactitudes_entropy_118, 'entropy', 118)
+graficar_performance_Decision_Tree(profundidades_entropy_82, exactitudes_entropy_82, 'entropy', 82)
+graficar_performance_Decision_Tree(profundidades_entropy_34, exactitudes_entropy_34, 'entropy', 34)
 
-profundidades_entropy_115, exactitudes_entropy_115 = performance_Decision_Tree(10, cinco_pixeles_utiles, 'entropy')
-profundidades_entropy_69, exactitudes_entropy_69 = performance_Decision_Tree(10, tres_pixeles_utiles, 'entropy')
-profundidades_entropy_23, exactitudes_entropy_23 = performance_Decision_Tree(10, pixel_mas_util, 'entropy')
-
-graficar_performance_Decision_Tree(profundidades_entropy_115, exactitudes_entropy_115, 'entropy', 115)
-graficar_performance_Decision_Tree(profundidades_entropy_69, exactitudes_entropy_69, 'entropy', 69)
-graficar_performance_Decision_Tree(profundidades_entropy_23, exactitudes_entropy_23, 'entropy', 23)
-
-graficar_performance_Decision_Tree(profundidades_gini_115, exactitudes_gini_115, 'gini', 115)
-graficar_performance_Decision_Tree(profundidades_gini_69, exactitudes_gini_69, 'gini', 69)
-graficar_performance_Decision_Tree(profundidades_gini_23, exactitudes_gini_23, 'gini', 23)
+graficar_performance_Decision_Tree(profundidades_gini_118, exactitudes_gini_118, 'gini', 118)
+graficar_performance_Decision_Tree(profundidades_gini_82, exactitudes_gini_82, 'gini', 82)
+graficar_performance_Decision_Tree(profundidades_gini_34, exactitudes_gini_34, 'gini', 34)
 
 # Encontrar la mejor profundidad y su exactitud
 
-mejor_exactitud_gini_115 = max(exactitudes_gini_115)
-mejor_profundidad_gini_115 = profundidades_gini_115[exactitudes_gini_115.index(mejor_exactitud_gini_115)]
-print(f"Mejor exactitud gini: {mejor_exactitud_gini_115} - Mejor profundidad gini 115: {mejor_profundidad_gini_115}")
+mejor_exactitud_gini_118 = max(exactitudes_gini_118)
+mejor_profundidad_gini_118 = profundidades_gini_118[exactitudes_gini_118.index(mejor_exactitud_gini_118)]
+print(f"Mejor exactitud gini: {mejor_exactitud_gini_118} - Mejor profundidad gini 118: {mejor_profundidad_gini_118}")
 
-mejor_exactitud_gini_69 = max(exactitudes_gini_69)
-mejor_profundidad_gini_69 = profundidades_gini_69[exactitudes_gini_69.index(mejor_exactitud_gini_69)]
-print(f"Mejor exactitud gini: {mejor_exactitud_gini_69} - Mejor profundidad gini 69: {mejor_profundidad_gini_69}")
+mejor_exactitud_gini_82 = max(exactitudes_gini_82)
+mejor_profundidad_gini_82 = profundidades_gini_82[exactitudes_gini_82.index(mejor_exactitud_gini_82)]
+print(f"Mejor exactitud gini: {mejor_exactitud_gini_82} - Mejor profundidad gini 82: {mejor_profundidad_gini_82}")
 
-mejor_exactitud_gini_23 = max(exactitudes_gini_23)
-mejor_profundidad_gini_23 = profundidades_gini_23[exactitudes_gini_23.index(mejor_exactitud_gini_23)]
-print(f"Mejor exactitud gini: {mejor_exactitud_gini_23} - Mejor profundidad gini 23: {mejor_profundidad_gini_23}")
+mejor_exactitud_gini_34 = max(exactitudes_gini_34)
+mejor_profundidad_gini_34 = profundidades_gini_34[exactitudes_gini_34.index(mejor_exactitud_gini_34)]
+print(f"Mejor exactitud gini: {mejor_exactitud_gini_34} - Mejor profundidad gini 34: {mejor_profundidad_gini_34}")
 
-mejor_exactitud_entropy_115 = max(exactitudes_entropy_115)
-mejor_profundidad_entropy_115 = profundidades_entropy_115[exactitudes_entropy_115.index(mejor_exactitud_entropy_115)]
-print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_115} - Mejor profundidad entropy 115: {mejor_profundidad_entropy_115}")
+mejor_exactitud_entropy_118 = max(exactitudes_entropy_118)
+mejor_profundidad_entropy_118 = profundidades_entropy_118[exactitudes_entropy_118.index(mejor_exactitud_entropy_118)]
+print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_118} - Mejor profundidad entropy 118: {mejor_profundidad_entropy_118}")
 
-mejor_exactitud_entropy_69 = max(exactitudes_entropy_69)
-mejor_profundidad_entropy_69 = profundidades_entropy_69[exactitudes_entropy_69.index(mejor_exactitud_entropy_69)]
-print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_69} - Mejor profundidad entropy 69: {mejor_profundidad_entropy_69}")
+mejor_exactitud_entropy_82 = max(exactitudes_entropy_82)
+mejor_profundidad_entropy_82 = profundidades_entropy_82[exactitudes_entropy_82.index(mejor_exactitud_entropy_82)]
+print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_82} - Mejor profundidad entropy 82: {mejor_profundidad_entropy_82}")
 
-mejor_exactitud_entropy_23 = max(exactitudes_entropy_23)
-mejor_profundidad_entropy_23 = profundidades_entropy_23[exactitudes_entropy_23.index(mejor_exactitud_entropy_23)]
-print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_23} - Mejor profundidad entropy 23: {mejor_profundidad_entropy_23}")
+mejor_exactitud_entropy_34 = max(exactitudes_entropy_34)
+mejor_profundidad_entropy_34 = profundidades_entropy_34[exactitudes_entropy_34.index(mejor_exactitud_entropy_34)]
+print(f"Mejor exactitud entropy: {mejor_exactitud_entropy_34} - Mejor profundidad entropy 34: {mejor_profundidad_entropy_34}")
 
 
 #Verificación de exactitud de modelo definitivo con HoldOut
 
 modelo_definitivo = DecisionTreeClassifier(max_depth = 10, criterion = 'entropy')
-modelo_definitivo.fit(X_dev[tres_pixeles_utiles], Y_dev)
-Y_pred_definitivo = modelo_definitivo.predict(X_holdout[tres_pixeles_utiles])
+modelo_definitivo.fit(X_dev[top_pixeles_sin_repetir_3], Y_dev)
+Y_pred_definitivo = modelo_definitivo.predict(X_holdout[top_pixeles_sin_repetir_3])
 print("Exactitud de Modelo Definitivo:", accuracy_score(Y_holdout, Y_pred_definitivo))
